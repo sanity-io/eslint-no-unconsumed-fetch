@@ -3,7 +3,7 @@ import noUnconsumedFetch = require("./rules/no-unconsumed-fetch");
 
 const meta = {
   name: "eslint-plugin-no-unconsumed-fetch",
-  version: "1.0.0",
+  version: "1.0.0-alpha.0",
 } as const;
 
 const rules = {
