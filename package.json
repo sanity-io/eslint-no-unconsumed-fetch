@@ -20,11 +20,11 @@
     "type": "git",
     "url": "git+https://github.com/sanity-io/eslint-no-unconsumed-fetch.git"
   },
-  "sideEffects": false,
   "files": [
     "dist/src"
   ],
   "type": "commonjs",
+  "sideEffects": false,
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
