@@ -1,0 +1,51 @@
+name: Release Packages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  # id-token: write # Enable once repo is public (needed for npm provenance)
+
+jobs:
+  release:
+    name: Release Packages
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Generate GitHub App Token
+        id: generate_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.ECOSPARK_APP_ID }}
+          private-key: ${{ secrets.ECOSPARK_APP_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v6
+        with:
+          token: ${{ steps.generate_token.outputs.token }}
+
+      - uses: ./.github/actions/setup
+        with:
+          npm-token: ${{ secrets.NPM_PUBLISH_TOKEN }}
+
+      - name: Build package
+        run: pnpm run build
+
+      - name: Create Release PR or Publish
+        id: changesets
+        uses: changesets/action@v1.7.0
+        with:
+          publish: pnpm pkg:publish
+          version: pnpm pkg:version
+          title: "chore: version packages"
+          commit: "chore: version packages"
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          # NPM_CONFIG_PROVENANCE: true # Enable once repo is public

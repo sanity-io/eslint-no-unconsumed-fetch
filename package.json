@@ -1,5 +1,5 @@
 {
-  "name": "no-unconsumed-fetch",
+  "name": "@sanity/no-unconsumed-fetch",
   "version": "1.0.0-alpha.2",
   "description": "ESLint rule to flag fetch() calls whose response body is not consumed or cancelled",
   "keywords": [
@@ -15,11 +15,12 @@
     "url": "https://github.com/gu-stav/no-unconsumed-fetch/issues"
   },
   "license": "MIT",
-  "author": "",
+  "author": "Sanity.io <hello@sanity.io>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gu-stav/no-unconsumed-fetch.git"
   },
+  "sideEffects": false,
   "files": [
     "dist/src"
   ],
@@ -33,10 +34,9 @@
     "lint:fix": "oxlint --fix",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "changeset": "changeset",
-    "version-packages": "changeset version",
-    "release": "pnpm run build && changeset publish",
-    "prepublishOnly": "pnpm run build"
+    "changeset:add": "changeset add",
+    "pkg:version": "changeset version",
+    "pkg:publish": "changeset publish"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.6.0",
