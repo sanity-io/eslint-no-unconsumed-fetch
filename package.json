@@ -10,15 +10,15 @@
     "fetch",
     "response"
   ],
-  "homepage": "https://github.com/gu-stav/no-unconsumed-fetch#readme",
+  "homepage": "https://github.com/sanity-io/eslint-no-unconsumed-fetch#readme",
   "bugs": {
-    "url": "https://github.com/gu-stav/no-unconsumed-fetch/issues"
+    "url": "https://github.com/sanity-io/eslint-no-unconsumed-fetch/issues"
   },
   "license": "MIT",
   "author": "Sanity.io <hello@sanity.io>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gu-stav/no-unconsumed-fetch.git"
+    "url": "git+https://github.com/sanity-io/eslint-no-unconsumed-fetch.git"
   },
   "sideEffects": false,
   "files": [
