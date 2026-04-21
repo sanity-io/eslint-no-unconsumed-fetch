@@ -2,7 +2,7 @@
   "mode": "pre",
   "tag": "alpha",
   "initialVersions": {
-    "no-unconsumed-fetch": "1.0.0-alpha.0"
+    "@sanity/no-unconsumed-fetch": "1.0.0-alpha.0"
   },
   "changesets": [
     "purple-dragons-fry",
